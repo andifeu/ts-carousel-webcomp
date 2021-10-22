@@ -1,0 +1,163 @@
+
+.crsl_widget {
+    overflow: hidden;
+    position: relative;
+}
+
+body.crsl_device_mobile .crsl_widget {
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.crsl_widget .crsl_container .crsl_bg_image {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    background-size: cover;
+}
+
+.crsl_widget .crsl_container .crsl_bg_image.crsl_active {
+    opacity:1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=1);
+}
+
+.crsl_widget .crsl_container .crsl_image_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding-top: 32px;
+    padding-bottom: 24px;
+    width: 9999px;
+    max-width: none;
+}
+
+.crsl_widget .crsl_container .crsl_slide {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    transition: 500ms;
+    display: block;
+}
+
+.crsl_widget .crsl_container .crsl_slide {
+    -webkit-transform: scale(.62) translateY(0);
+    transform: scale(.62) translateY(0);
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_active {
+    z-index: 3;
+    opacity: 1;
+    pointer-events: auto;
+    cursor: default;
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_active {
+    -webkit-transform: scale(1) translateY(0) translateX(0);
+    transform: scale(1) translateY(0) translateX(0);
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_slide_prev,
+.crsl_widget .crsl_container .crsl_slide.crsl_slide_next {
+    z-index: 2;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_slide_prev,
+.crsl_widget .crsl_container .crsl_slide.crsl_slide_next {
+    -webkit-transform: scale(.62) translateY(0) translateX(-100%);
+    transform: scale(.62) translateY(0) translateX(-100%);
+}
+
+body.crsl_device_mobile .crsl_widget .crsl_container .crsl_slide.crsl_slide_prev,
+body.crsl_device_mobile .crsl_widget .crsl_container .crsl_slide.crsl_slide_next {
+    -webkit-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_slide_prev {
+    -webkit-transform: scale(.62) translateY(0) translateX(100%);
+    transform: scale(.62) translateY(0) translateX(100%);
+}
+
+body.crsl_device_mobile .crsl_widget .crsl_container .crsl_slide.crsl_slide_prev {
+    -webkit-transform: translateX(-16px);
+    transform: translateX(-16px);
+}
+
+.crsl_widget .crsl_container .crsl_slide .crsl_image {
+    margin: auto;
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+.crsl_widget .crsl_container .crsl_slide.crsl_active .crsl_image {
+    box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+.crsl_widget .crsl_navigation {
+    width: 64px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.crsl_widget .crsl_navigation.crsl_disabled {
+    opacity: 0.38;
+    cursor: default;
+}
+
+.crsl_widget .crsl_navigation .crsl_icon {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: calc(50% - 16px);
+    left: 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+}
+
+.crsl_widget .crsl_navigation:not(.crsl_disabled) .crsl_icon:hover {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.crsl_widget .crsl_navigation .crsl_icon > svg {
+    height: 16px;
+    width: 16px;
+    stroke: #555;
+}
+
+.crsl_widget .crsl_navigation:not(.crsl_disabled) .crsl_icon:hover > svg {
+    stroke: #000;
+}
+.crsl_widget .crsl_navigation.crsl_navi_prev {
+    left: 0;
+}
+
+.crsl_widget .crsl_navigation.crsl_navi_next {
+    right: 0;
+}
