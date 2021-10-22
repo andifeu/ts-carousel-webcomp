@@ -39,7 +39,7 @@ export default class DomHelper {
     ): void {
 
         Toolkit.httpGETRequest(
-            '/src/icons/' + fileName,
+            'src/icons/' + fileName,
             (svgData) => {
                 let svgContainer = DomHelper.createContainer('crsl_icon');
                 svgContainer.innerHTML = svgData;

@@ -27,7 +27,7 @@ export default class DomHelper {
         return image;
     }
     static appendSVG(fileName, domNode, onLoadCallback, onErrorCallback) {
-        Toolkit.httpGETRequest('/src/icons/' + fileName, (svgData) => {
+        Toolkit.httpGETRequest('src/icons/' + fileName, (svgData) => {
             let svgContainer = DomHelper.createContainer('crsl_icon');
             svgContainer.innerHTML = svgData;
             domNode.appendChild(svgContainer);
